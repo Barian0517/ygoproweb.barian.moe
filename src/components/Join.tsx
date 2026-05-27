@@ -1,6 +1,7 @@
 import { Download, AlertTriangle, Settings, ChevronRight, Copy, MonitorPlay, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import step3Image from '../../pic/step3.png';
 
 export function Join({ setCurrentTab }: { setCurrentTab?: (tab: string) => void }) {
   const [copied, setCopied] = useState(false);
@@ -76,16 +77,8 @@ export function Join({ setCurrentTab }: { setCurrentTab?: (tab: string) => void 
             </div>
           </div>
 
-          <div className="bg-red-950/20 border border-red-500/20 rounded-2xl p-5 mb-6">
-            <div className="flex items-start gap-3">
-              <AlertTriangle className="text-red-400 mt-0.5 flex-shrink-0" size={20} />
-              <div>
-                <h4 className="text-red-300 font-bold mb-1">重要設定：防毒軟體判定</h4>
-                <p className="text-red-200/70 text-sm leading-relaxed">
-                  由於程式未包含數位簽章，部分防毒軟體（如 Windows Defender）可能會發生誤判而隔離遊戲核心檔案 <code>ygopro.exe</code>，請務必將遊戲資料夾加入防毒軟體白名單或排除清單中，否則遊戲將無法正常啟動。
-                </p>
-              </div>
-            </div>
+          <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-4 mb-6 hover:border-white/10 transition-colors">
+            <img src={step3Image} alt="Step 3 Guide" className="w-full rounded-xl object-contain opacity-90 hover:opacity-100 transition-opacity" />
           </div>
 
 
