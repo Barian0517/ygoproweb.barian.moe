@@ -62,17 +62,40 @@ export function Join({ setCurrentTab }: { setCurrentTab?: (tab: string) => void 
             <div className="bg-slate-950/60 border border-white/5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 px-4 gap-4 hover:border-white/10 transition-colors">
               <div className="flex items-center gap-4">
                 <span className="bg-slate-800 text-blue-300 font-bold text-sm px-3 py-1.5 rounded-lg shadow-inner">Step 2</span>
+                <span className="text-white/80 font-medium">下載更新器，放入 mdpro3 根目錄並執行</span>
+              </div>
+              <a href="https://cloudreve.barian.moe/f/APJfq/MDPro3_launcher.exe" className="whitespace-nowrap flex items-center gap-2 bg-green-500/10 text-green-300 border border-green-500/30 px-4 py-2 rounded-xl text-sm font-bold hover:bg-green-500/20 hover:border-green-500/50 transition-all ml-14 sm:ml-0 shadow-lg">
+                <Download size={16} /> 下載更新器
+              </a>
+            </div>
+
+            <div className="bg-slate-950/60 border border-white/5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 px-4 gap-4 hover:border-white/10 transition-colors">
+              <div className="flex items-center gap-4">
+                <span className="bg-slate-800 text-pink-400 font-bold text-sm px-3 py-1.5 rounded-lg shadow-inner">Finish</span>
+                <span className="text-white/80 font-medium">之後請使用 <code className="bg-black/50 text-cyan-200 px-1.5 py-0.5 rounded border border-white/5">MDPro3_launcher.exe</code> 啟動遊戲</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 py-2">
+              <div className="h-px bg-white/20 flex-1"></div>
+              <span className="text-white/40 text-sm font-bold">手動更新方法</span>
+              <div className="h-px bg-white/20 flex-1"></div>
+            </div>
+
+            <div className="bg-slate-950/60 border border-white/5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 px-4 gap-4 hover:border-white/10 transition-colors opacity-80">
+              <div className="flex items-center gap-4">
+                <span className="bg-slate-800/60 text-blue-300/70 font-bold text-sm px-3 py-1.5 rounded-lg shadow-inner flex-shrink-0">手動 1</span>
                 <span className="text-white/80 font-medium">下載最新版本的自製卡包檔案</span>
               </div>
-              <a href="https://ygoproapi.barian.moe/api/download/ypk" download className="whitespace-nowrap flex items-center gap-2 bg-pink-500/10 text-pink-300 border border-pink-500/30 px-4 py-2 rounded-xl text-sm font-bold hover:bg-pink-500/20 hover:border-pink-500/50 transition-all ml-14 sm:ml-0 shadow-lg">
+              <a href="https://ygoproapi.barian.moe/api/download/ypk" download className="whitespace-nowrap flex items-center gap-2 bg-pink-500/10 text-pink-300/80 border border-pink-500/30 px-4 py-2 rounded-xl text-sm font-bold hover:bg-pink-500/20 hover:border-pink-500/50 transition-all ml-14 sm:ml-0 shadow-lg">
                 <Download size={16} /> 下載卡包
               </a>
             </div>
             
-            <div className="bg-slate-950/60 border border-white/5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 px-4 gap-4 hover:border-white/10 transition-colors leading-relaxed">
+            <div className="bg-slate-950/60 border border-white/5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 px-4 gap-4 hover:border-white/10 transition-colors leading-relaxed opacity-80">
               <div className="flex items-center gap-4">
-                <span className="bg-slate-800 text-blue-300 font-bold text-sm px-3 py-1.5 rounded-lg shadow-inner">Step 3</span>
-                <span className="text-white/80 font-medium">將卡包內容覆蓋至遊戲根目錄的 <code className="bg-black/50 text-cyan-200 px-1.5 py-0.5 rounded border border-white/5">expansions</code> 資料夾內</span>
+                <span className="bg-slate-800/60 text-blue-300/70 font-bold text-sm px-3 py-1.5 rounded-lg shadow-inner flex-shrink-0">手動 2</span>
+                <span className="text-white/80 font-medium">將卡包內容覆蓋至遊戲根目錄的 <code className="bg-black/50 text-cyan-200/80 px-1.5 py-0.5 rounded border border-white/5">expansions</code> 資料夾內</span>
               </div>
             </div>
           </div>
