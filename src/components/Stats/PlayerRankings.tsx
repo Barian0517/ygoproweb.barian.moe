@@ -17,7 +17,9 @@ interface Player {
 interface CardRank {
   id: number;
   name: string;
-  usageCount: number;
+  usageCount?: number;
+  deckCount?: number;
+  count?: number;
 }
 
 export function PlayerRankings({ month }: PlayerRankingsProps) {
@@ -178,10 +180,14 @@ export function PlayerRankings({ month }: PlayerRankingsProps) {
                       <CardName id={card.id} initialName={card.name} />
                     </span>
                   </div>
-                  <div className="flex flex-col items-end gap-1">
-                    <div className="flex items-center gap-1.5 text-xs text-pink-300/80 bg-pink-500/10 px-2 py-1 rounded-md font-mono border border-pink-500/20 whitespace-nowrap">
-                      <span>投入次數:</span>
-                      <span className="font-bold">{card.usageCount}</span>
+                  <div className="flex flex-col items-end gap-1.5">
+                    <div className="flex items-center gap-1.5 text-xs text-blue-300/80 bg-blue-500/10 px-2 py-0.5 rounded-md font-mono border border-blue-500/20 whitespace-nowrap">
+                      <span>玩家投入:</span>
+                      <span className="font-bold">{card.deckCount ?? card.count ?? 0}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs text-pink-300/80 bg-pink-500/10 px-2 py-0.5 rounded-md font-mono border border-pink-500/20 whitespace-nowrap">
+                      <span>投入總數:</span>
+                      <span className="font-bold">{card.usageCount ?? card.count ?? 0}</span>
                     </div>
                   </div>
                 </motion.div>

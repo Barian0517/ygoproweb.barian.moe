@@ -76,14 +76,6 @@ export function ReplayDetails({ id, onBack }: ReplayDetailsProps) {
         >
           <ArrowLeft size={16} /> 返回重播列表
         </button>
-
-        <a 
-          href={`https://ygoproapi.barian.moe/api/stats/replays/${id}/download`}
-          download
-          className="flex items-center gap-2 bg-blue-500 text-white px-5 py-2.5 rounded-xl font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-400 hover:shadow-blue-500/40 transition-all"
-        >
-          <Download size={18} /> 下載 .yrp 重播檔
-        </a>
       </div>
 
       <div className="bg-slate-900/80 border border-white/10 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden flex flex-col items-center">
@@ -133,16 +125,30 @@ export function ReplayDetails({ id, onBack }: ReplayDetailsProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-slate-900/80 border border-white/10 rounded-3xl overflow-hidden">
-          <div className="bg-white/5 border-b border-white/10 p-4 font-bold text-white text-center">
-            {data.player1} 的牌組
+        <div className="bg-slate-900/80 border border-white/10 rounded-3xl overflow-hidden flex flex-col">
+          <div className="bg-white/5 border-b border-white/10 p-4 font-bold text-white flex justify-between items-center">
+            <span>{data.player1} 的牌組</span>
+            <a 
+              href={`https://ygoproapi.barian.moe/api/stats/replays/${id}/deck/1`}
+              download
+              className="flex items-center gap-1.5 text-xs bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 px-3 py-1.5 rounded-lg transition-colors border border-blue-500/20"
+            >
+              <Download size={14} /> 下載 .ydk
+            </a>
           </div>
           <DeckView deck={data.deck1} maxHeight="500px" />
         </div>
         
-        <div className="bg-slate-900/80 border border-white/10 rounded-3xl overflow-hidden">
-          <div className="bg-white/5 border-b border-white/10 p-4 font-bold text-white text-center">
-            {data.player2} 的牌組
+        <div className="bg-slate-900/80 border border-white/10 rounded-3xl overflow-hidden flex flex-col">
+          <div className="bg-white/5 border-b border-white/10 p-4 font-bold text-white flex justify-between items-center">
+            <span>{data.player2} 的牌組</span>
+            <a 
+              href={`https://ygoproapi.barian.moe/api/stats/replays/${id}/deck/2`}
+              download
+              className="flex items-center gap-1.5 text-xs bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 px-3 py-1.5 rounded-lg transition-colors border border-blue-500/20"
+            >
+              <Download size={14} /> 下載 .ydk
+            </a>
           </div>
           <DeckView deck={data.deck2} maxHeight="500px" />
         </div>
