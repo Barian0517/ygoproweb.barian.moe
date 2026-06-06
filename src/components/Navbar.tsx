@@ -15,6 +15,7 @@ export function Navbar({ currentTab, setCurrentTab }: NavbarProps) {
     { id: 'cards', label: '卡片列表' },
     { id: 'commands', label: '指令大全' },
     { id: 'install', label: '安裝教學' },
+    { id: 'stats', label: '決鬥一覽' },
     { id: 'about', label: '關於作者' },
   ];
 

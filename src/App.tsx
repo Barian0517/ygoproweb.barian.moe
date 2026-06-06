@@ -8,6 +8,7 @@ import { CardList } from './components/CardList';
 import { Join } from './components/Join';
 import { Footer } from './components/Footer';
 import { InstallGuide } from './components/InstallGuide';
+import { DuelStats } from './components/Stats/DuelStats';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState('home');
@@ -21,6 +22,8 @@ export default function App() {
         return <Commands />;
       case 'install':
         return <InstallGuide />;
+      case 'stats':
+        return <DuelStats />;
       case 'about':
         return <About />;
       case 'cards':
