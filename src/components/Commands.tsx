@@ -29,16 +29,17 @@ export function Commands() {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4 max-w-5xl mx-auto">
+    <div className="pt-24 pb-24 max-w-max-width mx-auto px-4 md:px-margin-desktop min-h-screen">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-16"
+        className="mb-16 border-b border-outline-variant/30 pb-10"
       >
-        <h2 className="text-4xl font-bold mb-4 font-mono text-cyan-400 flex items-center justify-center gap-3">
-          <Terminal size={36} /> 連線設定與房間代碼
+        <span className="text-secondary font-label-caps text-xs tracking-[0.4em] block mb-2 w-full">SYSTEM IDENTIFIER: COMMANDS</span>
+        <h2 className="font-display-hero text-headline-sm md:text-headline-lg uppercase flex items-center gap-3 text-on-surface">
+          <Terminal size={40} className="text-secondary" /> 連線設定與房間代碼
         </h2>
-        <p className="text-white/50">在遊戲主機密碼處輸入特殊代碼，即可自訂決鬥規則</p>
+        <p className="font-body-md text-on-surface-variant max-w-xl mt-4">在遊戲主機密碼處輸入特殊代碼，即可自訂決鬥規則</p>
       </motion.div>
 
       {/* Connection Info */}
@@ -46,41 +47,42 @@ export function Commands() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-slate-900/80 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-8 shadow-2xl mb-12 hover:border-blue-400/40 transition-colors"
+        className="bg-surface-container border border-outline-variant p-8 mb-16 relative overflow-hidden"
       >
-        <div className="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
-          <Gamepad2 className="text-blue-400" size={28} />
-          <h3 className="text-2xl font-bold text-white">基礎連線方式</h3>
+        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
+        <div className="flex items-center gap-3 mb-8 border-b border-outline-variant/30 pb-4">
+          <Gamepad2 className="text-primary" size={24} />
+          <h3 className="text-title-lg font-title-lg text-on-surface uppercase tracking-wide">基礎連線方式</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
           <div className="space-y-4">
-            <div className="bg-slate-950 rounded-xl p-4 border border-white/5">
-              <div className="text-sm text-white/50 mb-1">主機位置 (IP)</div>
-              <div className="font-mono text-xl text-cyan-300 font-bold">ygopro.barian.moe</div>
+            <div className="bg-void-black p-4 border border-outline-variant">
+              <div className="font-label-caps text-[10px] text-on-surface-variant tracking-wider uppercase mb-2">主機位置 (IP)</div>
+              <div className="font-mono text-2xl text-primary font-bold">ygopro.barian.moe</div>
             </div>
-            <div className="bg-slate-950 rounded-xl p-4 border border-white/5">
-              <div className="text-sm text-white/50 mb-1">通訊埠 (Port)</div>
-              <div className="font-mono text-xl text-cyan-300 font-bold">7911</div>
+            <div className="bg-void-black p-4 border border-outline-variant">
+              <div className="font-label-caps text-[10px] text-on-surface-variant tracking-wider uppercase mb-2">通訊埠 (Port)</div>
+              <div className="font-mono text-2xl text-primary font-bold">7911</div>
             </div>
           </div>
-          <div className="text-white/70 space-y-4 text-sm leading-relaxed bg-blue-950/20 p-5 rounded-xl border border-blue-500/10">
-            <div className="flex items-start gap-3">
-              <Info size={20} className="text-blue-400 flex-shrink-0 mt-0.5" /> 
+          <div className="text-on-surface-variant space-y-5 font-body-md leading-relaxed bg-surface-container-low p-6 border-l-4 border-l-primary/50">
+            <div className="flex items-start gap-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
               <div>
-                <strong className="text-blue-200 block mb-1 text-base">隨機對戰：</strong>
-                不輸入主機密碼直接加入，會進入單局隨機對戰。輸入 <code className="bg-black/30 border border-white/10 px-1.5 py-0.5 rounded text-cyan-300">S</code> 為純單局，<code className="bg-black/30 border border-white/10 px-1.5 py-0.5 rounded text-cyan-300">M</code> 為 MATCH，<code className="bg-black/30 border border-white/10 px-1.5 py-0.5 rounded text-cyan-300">T</code> 為雙打。
+                <strong className="text-on-surface block mb-1 text-base uppercase">隨機對戰</strong>
+                不輸入主機密碼直接加入，會進入單局隨機對戰。輸入 <code className="bg-void-black border border-outline-variant/50 px-2 py-0.5 text-primary text-xs font-mono">S</code> 為純單局，<code className="bg-void-black border border-outline-variant/50 px-2 py-0.5 text-primary text-xs font-mono">M</code> 為 MATCH，<code className="bg-void-black border border-outline-variant/50 px-2 py-0.5 text-primary text-xs font-mono">T</code> 為雙打。
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <Info size={20} className="text-blue-400 flex-shrink-0 mt-0.5" /> 
+            <div className="flex items-start gap-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
               <div>
-                <strong className="text-blue-200 block mb-1 text-base">私人房間：</strong>
+                <strong className="text-on-surface block mb-1 text-base uppercase">私人房間</strong>
                 輸入任意文字作為密碼建立房間，對手輸入相同密碼即可加入。
               </div>
             </div>
-            <div className="flex items-start gap-3 text-yellow-300/90 font-medium">
-              <Zap size={20} className="text-yellow-400 flex-shrink-0 mt-0.5" /> 
-              <div>
+            <div className="flex items-start gap-4 mt-6 pt-4 border-t border-outline-variant/30 text-error/90 font-medium">
+              <Zap size={18} className="text-error flex-shrink-0 mt-0.5" /> 
+              <div className="text-sm">
                 原版 YGOPro 的「建立主機」按鈕不適用於此伺服器，請直接填寫資訊並點擊「加入遊戲」。
               </div>
             </div>
@@ -96,27 +98,27 @@ export function Commands() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <Hash className="text-cyan-400" size={24} />
-            <h3 className="text-2xl font-bold text-white">進階房間代碼</h3>
+            <Hash className="text-secondary" size={24} />
+            <h3 className="text-title-lg font-title-lg text-on-surface uppercase tracking-wide">進階房間代碼</h3>
           </div>
-          <p className="text-sm text-white/50 mb-6 bg-slate-900/50 p-4 rounded-xl border border-white/5">
-            在密碼處輸入 <strong className="text-white">代碼#房間名</strong> 即可建立特殊規則房，多個代碼可用逗號 <code>,</code> 分隔。房間名加上代碼最長 20 個字。不區分大小寫。
+          <p className="font-body-sm text-on-surface-variant mb-6 bg-surface-container-low p-4 border border-outline-variant border-l-4 border-l-secondary">
+            在密碼處輸入 <strong className="text-on-surface font-mono">代碼#房間名</strong> 即可建立特殊規則房，多個代碼可用逗號 <code>,</code> 分隔。房間名加上代碼最長 20 個字。不區分大小寫。
           </p>
           
-          <div className="bg-slate-900/80 border border-blue-500/20 rounded-2xl overflow-hidden shadow-xl">
+          <div className="bg-void-black border border-outline-variant overflow-hidden">
             <div className="overflow-y-auto max-h-[500px] custom-scrollbar">
               <table className="w-full text-left border-collapse">
-                <thead className="bg-slate-950 sticky top-0 z-10">
+                <thead className="bg-surface-container sticky top-0 z-10 border-b border-outline-variant">
                   <tr>
-                    <th className="py-3 px-4 text-sm font-bold text-blue-300 border-b border-white/10">代碼 (縮寫)</th>
-                    <th className="py-3 px-4 text-sm font-bold text-blue-300 border-b border-white/10">功能說明</th>
+                    <th className="py-4 px-6 font-label-caps text-xs text-on-surface-variant border-r border-outline-variant/30">代碼 (縮寫)</th>
+                    <th className="py-4 px-6 font-label-caps text-xs text-on-surface-variant">功能說明</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-outline-variant/30">
                   {codes.map((item, idx) => (
-                    <tr key={idx} className="hover:bg-blue-900/20 transition-colors group">
-                      <td className="py-3 px-4 font-mono text-cyan-400/90 text-sm whitespace-nowrap group-hover:text-cyan-300">{item.code}</td>
-                      <td className="py-3 px-4 text-sm text-white/70 group-hover:text-white/90">{item.desc}</td>
+                    <tr key={idx} className="hover:bg-surface-container-highest transition-colors group">
+                      <td className="py-3 px-6 font-mono text-secondary text-sm whitespace-nowrap border-r border-outline-variant/30">{item.code}</td>
+                      <td className="py-3 px-6 font-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">{item.desc}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -132,17 +134,18 @@ export function Commands() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <Zap className="text-yellow-400" size={24} />
-            <h3 className="text-2xl font-bold text-white">密碼組合範例</h3>
+            <Zap className="text-rarity-ultra" size={24} />
+            <h3 className="text-title-lg font-title-lg text-on-surface uppercase tracking-wide">密碼組合範例</h3>
           </div>
           
           <div className="space-y-4">
             {examples.map((ex, idx) => (
-              <div key={idx} className="bg-slate-900/80 border border-blue-500/10 p-5 rounded-2xl hover:border-blue-500/40 hover:-translate-y-1 transition-all shadow-lg group">
-                <div className="inline-block bg-black/40 px-3 py-1.5 rounded-lg border border-white/5 font-mono text-cyan-300 font-bold mb-3 shadow-inner group-hover:bg-blue-950/40 transition-colors">
+              <div key={idx} className="bg-surface-container border border-outline-variant p-5 hover:border-rarity-ultra/50 transition-colors group relative overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-rarity-ultra/50 transition-colors"></div>
+                <div className="inline-block bg-void-black px-3 py-1.5 border border-outline-variant/50 font-mono text-primary font-bold mb-4 shadow-inner">
                   {ex.pwd}
                 </div>
-                <p className="text-sm text-white/70 leading-relaxed font-serif group-hover:text-white/90 transition-colors">
+                <p className="font-body-md text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors">
                   {ex.desc}
                 </p>
               </div>

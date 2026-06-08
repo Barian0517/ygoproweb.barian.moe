@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, Trophy, PlayCircle, ChevronDown, Loader2 } from 'lucide-react';
 import { PlayerRankings } from './PlayerRankings';
 import { Replays } from './Replays';
 
-interface DuelStatsProps {
-  // Add any needed props
-}
+interface DuelStatsProps {}
 
 export function DuelStats({}: DuelStatsProps) {
   const [activeTab, setActiveTab] = useState<'ranking' | 'replays'>('ranking');
@@ -45,60 +42,55 @@ export function DuelStats({}: DuelStatsProps) {
   }, []);
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4 max-w-6xl mx-auto flex flex-col gap-8">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 gap-6"
-      >
+    <div className="pt-24 pb-24 max-w-max-width mx-auto px-4 md:px-margin-desktop min-h-screen">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 border-b border-outline-variant/30 pb-6">
         <div>
-          <h2 className="text-4xl font-bold mb-2 tracking-tight text-white flex items-center gap-3">
-            <Trophy className="text-yellow-400" size={36} />
-            決鬥一覽
+          <h2 className="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tighter flex items-center gap-3">
+            決鬥 <span className="text-rarity-ultra">數據</span>
           </h2>
-          <p className="text-white/50 max-w-xl text-sm leading-relaxed">
+          <p className="font-body-md text-on-surface-variant max-w-xl mt-2">
             查看本伺服器近期的對局狀態、熱門卡片、玩家排行榜與精采重播。
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
           {/* Tab Selection */}
-          <div className="flex bg-slate-900/80 p-1 rounded-xl border border-white/5">
+          <div className="flex bg-surface-container-low p-1 border border-outline-variant">
             <button
               onClick={() => setActiveTab('ranking')}
-              className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all text-sm ${activeTab === 'ranking' ? 'bg-blue-500/20 text-blue-400 shadow-sm' : 'text-white/50 hover:text-white/80 hover:bg-white/5'}`}
+              className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 font-label-caps text-[10px] transition-all border ${activeTab === 'ranking' ? 'bg-primary/20 text-primary border-primary/50' : 'border-transparent text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest'}`}
             >
-              <Trophy size={16} /> 決鬥排行
+              <Trophy size={14} /> 決鬥排行
             </button>
             <button
               onClick={() => setActiveTab('replays')}
-              className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all text-sm ${activeTab === 'replays' ? 'bg-blue-500/20 text-blue-400 shadow-sm' : 'text-white/50 hover:text-white/80 hover:bg-white/5'}`}
+              className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 font-label-caps text-[10px] transition-all border ${activeTab === 'replays' ? 'bg-secondary/20 text-secondary border-secondary/50' : 'border-transparent text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest'}`}
             >
-              <PlayCircle size={16} /> 決鬥重溫
+              <PlayCircle size={14} /> 決鬥重溫
             </button>
           </div>
 
           {/* Month Selector */}
           <div className="relative group min-w-[140px]">
             <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-              {loadingMonths ? <Loader2 size={16} className="text-white/40 animate-spin" /> : <Calendar size={16} className="text-white/40" />}
+              {loadingMonths ? <Loader2 size={16} className="text-on-surface-variant animate-spin" /> : <Calendar size={16} className="text-on-surface-variant" />}
             </div>
             <select
               value={selectedMonth}
               onChange={(e) => setSelectedMonth(e.target.value)}
-              className="w-full bg-slate-900/80 border border-white/10 rounded-xl py-2.5 pl-10 pr-10 text-white/80 text-sm font-medium appearance-none outline-none focus:border-blue-400 transition-colors cursor-pointer"
+              className="w-full bg-surface-container-low border border-outline-variant py-2.5 pl-10 pr-10 text-on-surface font-label-caps text-xs appearance-none outline-none hover:border-primary focus:border-primary transition-colors cursor-pointer"
             >
               {months.map(m => (
                 <option key={m} value={m}>{m}</option>
               ))}
               {months.length === 0 && <option value={selectedMonth}>{selectedMonth}</option>}
             </select>
-            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-white/40 group-hover:text-white/60 transition-colors">
-              <ChevronDown size={16} />
+            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-on-surface-variant group-hover:text-primary transition-colors">
+              <ChevronDown size={14} />
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <div className="relative min-h-[500px]">
         {selectedMonth && activeTab === 'ranking' && <PlayerRankings month={selectedMonth} />}

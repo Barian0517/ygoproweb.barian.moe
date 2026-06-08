@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Loader2, Download, MonitorPlay, Calendar, Clock, Swords } from 'lucide-react';
+import { Loader2, MonitorPlay, Calendar, Clock, Swords } from 'lucide-react';
 import { ReplayDetails } from './ReplayDetails';
 
 interface ReplaysProps {
@@ -49,31 +49,30 @@ export function Replays({ month }: ReplaysProps) {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center py-32 text-white/50">
-        <Loader2 className="animate-spin mb-4 text-blue-400" size={40} />
-        <p>載入對戰紀錄中...</p>
+      <div className="flex flex-col items-center justify-center py-32 text-on-surface-variant">
+        <Loader2 className="animate-spin mb-4 text-secondary" size={40} />
       </div>
     );
   }
 
   if (replays.length === 0) {
     return (
-      <div className="bg-slate-900/50 border border-white/5 rounded-3xl p-16 text-center text-white/40">
-        <MonitorPlay size={64} className="mx-auto mb-6 opacity-30" />
-        <h3 className="text-xl font-bold mb-2 text-white/60">目前沒有重播紀錄</h3>
-        <p className="text-sm">這個月還沒有產生任何決鬥重播檔案。</p>
+      <div className="bg-surface-container border border-outline-variant/30 p-16 text-center text-on-surface-variant flex flex-col items-center justify-center gap-4">
+        <MonitorPlay size={48} className="text-outline-variant" />
+        <h3 className="font-title-md text-on-surface">目前沒有重播紀錄</h3>
+        <p className="font-body-md">這個月還沒有產生任何決鬥重播檔案。</p>
       </div>
     );
   }
 
   return (
     <div className="space-y-6">
-      <div className="bg-blue-500/10 border border-blue-500/20 text-blue-300 px-6 py-4 rounded-2xl flex items-start gap-4">
-        <MonitorPlay className="flex-shrink-0 mt-1" size={20} />
+      <div className="bg-surface-container border-l-4 border-secondary p-6 flex items-start gap-4">
+        <MonitorPlay className="flex-shrink-0 mt-1 text-secondary" size={24} />
         <div>
-          <h4 className="font-bold mb-1">關於決鬥重溫</h4>
-          <p className="text-sm text-blue-200/70 leading-relaxed">
-            您可以查看在此伺服器所進行過的決鬥完整紀錄，並下載 <code className="bg-black/50 px-1 py-0.5 rounded text-cyan-300">.yrp</code> 檔案放回遊戲的 replay 資料夾中觀看。
+          <h4 className="font-title-md text-secondary uppercase tracking-widest mb-2">關於決鬥重溫</h4>
+          <p className="text-on-surface-variant font-body-md leading-relaxed">
+            您可以查看在此伺服器所進行過的決鬥完整紀錄，並可以直接下載對局玩家的 <code className="bg-void-black px-2 py-0.5 border border-primary/30 text-primary font-mono text-xs">.ydk</code> 牌組檔案以供自己參考與使用。
           </p>
         </div>
       </div>
@@ -91,35 +90,35 @@ export function Replays({ month }: ReplaysProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
               onClick={() => setSelectedReplayId(replay.id)}
-              className="bg-slate-900/80 border border-white/10 rounded-2xl p-5 hover:border-blue-500/30 hover:bg-blue-500/5 transition-all cursor-pointer group shadow-lg"
+              className="bg-surface-container border border-outline-variant p-5 hover:border-secondary transition-all cursor-pointer group shadow-lg flex flex-col"
             >
-              <div className="flex justify-between items-center mb-4 pb-4 border-b border-white/5">
-                <div className="flex items-center gap-2 text-xs text-white/40 font-mono">
+              <div className="flex justify-between items-center mb-4 pb-4 border-b border-outline-variant/30">
+                <div className="flex items-center gap-2 text-[10px] text-on-surface-variant font-label-caps">
                   <Calendar size={14} /> {dateStr}
                 </div>
-                <div className="flex items-center gap-2 text-xs text-white/40 font-mono">
+                <div className="flex items-center gap-2 text-[10px] text-on-surface-variant font-label-caps">
                   <Clock size={14} /> {timeStr}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between mb-6">
-                <div className="text-center flex-1 truncate px-2">
-                  <div className="font-bold text-white text-lg truncate">{replay.player1 || 'Unknown'}</div>
-                  <div className="text-xs text-cyan-400/70 mt-1 font-mono">{replay.deck1Length || 0} 張卡</div>
+              <div className="flex items-center justify-between mb-8 flex-1">
+                <div className="text-center flex-1 min-w-0 px-2">
+                  <div className="font-display-hero text-on-surface text-lg truncate uppercase">{replay.player1 || 'Unknown'}</div>
+                  <div className="text-[10px] text-on-surface-variant mt-1 font-label-caps">{replay.deck1Length || 0} CARDS</div>
                 </div>
                 <div className="flex-shrink-0 flex flex-col items-center">
-                  <div className="w-8 h-8 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center text-white/30 text-xs font-bold mb-1">
+                  <div className="font-display-hero text-xl italic text-on-tertiary-fixed-variant opacity-50 px-2">
                     VS
                   </div>
                 </div>
-                <div className="text-center flex-1 truncate px-2">
-                  <div className="font-bold text-white text-lg truncate">{replay.player2 || 'Unknown'}</div>
-                  <div className="text-xs text-cyan-400/70 mt-1 font-mono">{replay.deck2Length || 0} 張卡</div>
+                <div className="text-center flex-1 min-w-0 px-2">
+                  <div className="font-display-hero text-on-surface text-lg truncate uppercase">{replay.player2 || 'Unknown'}</div>
+                  <div className="text-[10px] text-on-surface-variant mt-1 font-label-caps">{replay.deck2Length || 0} CARDS</div>
                 </div>
               </div>
 
-              <div className="w-full bg-white/5 hover:bg-white/10 text-white/60 hover:text-white text-sm font-medium py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2">
-                <Swords size={16} /> 查看詳細對戰
+              <div className="w-full border border-secondary/50 text-secondary bg-secondary/10 group-hover:bg-secondary group-hover:text-on-secondary font-label-caps text-xs py-3 transition-colors flex items-center justify-center gap-2 mt-auto">
+                <Swords size={16} /> DATA UPLINK
               </div>
             </motion.div>
           );
