@@ -77,9 +77,19 @@ export function ReplayDetails({ id, onBack }: ReplayDetailsProps) {
       </div>
 
       <div className="bg-surface-container border border-outline-variant p-8 relative overflow-hidden flex flex-col items-center">
-        <div className="flex gap-6 text-on-surface-variant font-label-caps text-[10px] mb-8 z-10 opacity-70">
+        <div className="flex flex-wrap min-h-8 items-center justify-center gap-6 text-on-surface-variant font-label-caps text-[10px] mb-8 z-10 opacity-80">
           <span className="flex items-center gap-1.5"><Calendar size={14} /> {dateStr}</span>
           <span className="flex items-center gap-1.5"><Clock size={14} /> {timeStr}</span>
+          <div className="h-4 w-px bg-outline-variant/50"></div>
+          <a 
+            href={`https://ygoproapi.barian.moe/api/stats/replays/${id}/download`}
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-secondary bg-secondary/10 hover:bg-secondary/20 border border-secondary/40 hover:border-secondary px-4 py-1.5 transition-all"
+          >
+            <Download size={14} /> DOWNLOAD .YRP
+          </a>
         </div>
 
         <div className="flex items-center justify-center w-full max-w-4xl z-10 gap-4 sm:gap-12">
