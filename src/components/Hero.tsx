@@ -106,7 +106,7 @@ export function Hero({ setCurrentTab }: { setCurrentTab?: (tab: string) => void 
           <img 
             id="hero-image" 
             alt="Hero background" 
-            className="w-full h-full object-cover parallax-bg scale-110 opacity-60" 
+            className="w-full h-full object-cover object-top origin-top parallax-bg scale-110 opacity-60" 
             src="https://cloudreve.barian.moe/f/jadhb/161286074_2805390906344898_1172348832472649761_n%281%29.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-void-black via-void-black/40 to-transparent"></div>
