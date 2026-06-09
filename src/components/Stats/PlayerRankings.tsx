@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Trophy, Loader2, User } from 'lucide-react';
 import { PlayerDetails } from './PlayerDetails';
-import { CustomCardsPreview } from './CustomCardsPreview';
+import { PopularCards } from './PopularCards';
 
 interface PlayerRankingsProps {
   month: string;
@@ -133,7 +133,7 @@ export function PlayerRankings({ month }: PlayerRankingsProps) {
 
       {/* Popular Cards Column content */}
       <div className="xl:col-span-1 xl:sticky xl:top-24 xl:h-[calc(100vh-7rem)] overflow-y-auto custom-scrollbar space-y-6 pb-20 xl:pb-0">
-         <CustomCardsPreview />
+         <PopularCards month={month} />
       </div>
     </div>
   );
